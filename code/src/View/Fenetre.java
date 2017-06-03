@@ -1,6 +1,5 @@
 package View;
 
-import Model.Joueur;
 import Model.Objets;
 
 import java.awt.Color;
@@ -11,12 +10,10 @@ import javax.swing.JFrame;
 
 public class Fenetre {
 	
-	private Plateau plateau = new Plateau();
+	public Plateau plateau = new Plateau();
 	
-	public int FenVieHaut;
-	
-	public Fenetre(Joueur Joueur1, Joueur Joueur2){
-		this.FenVieHaut = Joueur1.getVie();
+	public Fenetre(){
+
 		// window title
 	    JFrame window = new JFrame("BomberMan");
 	    // Exit and stop the program
@@ -31,12 +28,7 @@ public class Fenetre {
 	
 	public void setJeuObjets(ArrayList<Objets> objects){
 		this.plateau.setObjects(objects);
-		this.plateau.vieHaut = this.FenVieHaut;
 		this.plateau.redraw();
-	}
-	
-	public void setvieHaut(int vieHaut){
-		this.FenVieHaut = vieHaut;
 	}
 	
 	public void update(){

@@ -1,12 +1,13 @@
 package Model;
 
+import Model.Jeu;
 import java.util.ArrayList;
 
 public class Joueur extends Objets implements DestructibleObservateur, ExplosableObservateur, Destructible{
 	
 	int countBomb = 0;
 	int maxBomb = 0;
-	int bombPortee = 3;
+	int bombePortee = 3;
 	int vie;
 	int numJoueur;
 	
@@ -31,9 +32,10 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 			BombeObjet bombe = null;
 			
 			if(type.equals("nuke")){
-				bombe = new Nuke(this.posX, this.posY, 5000, this.bombPortee); // 5 000 ms
+				bombe = new Nuke(this.posX, this.posY, 5000, this.bombePortee); // 5 000 ms
 			}else if(type.equals("bomb")){
-				bombe = new Bombe(this.posX, this.posY, 5000, this.bombPortee); // 5 000 ms
+				int duree = 5000;
+				bombe = new Bombe(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
 			}
 			
 			bombe.destructibleFixe(this);
@@ -65,15 +67,20 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 		BombeObjet bombe = (BombeObjet) e;
 		
 		// test if we are in range to be explode
-		boolean distanceX = Math.abs(this.getPosX() - bombe.getPosX()) <= bombe.getPortee();
-		boolean distanceY = Math.abs(this.getPosY() - bombe.getPosY()) <= bombe.getPortee();
+		boolean distanceXPos = this.getPosX() - bombe.getPosX() <= bombe.getporteeXPos();
+		boolean distanceXNeg = bombe.getPosX() - this.getPosX() <= bombe.getporteeXNeg();
+		boolean distanceYPos = this.getPosY() - bombe.getPosY() <= bombe.getporteeYPos();
+		boolean distanceYNeg = bombe.getPosY() - this.getPosY() <= bombe.getporteeYNeg();
 		
 		// Lost life when we get explode
-		if(distanceX && distanceY){
+		if((distanceXPos && this.getPosY()==bombe.getPosY()) ||
+			(distanceYPos && this.getPosX()==bombe.getPosX())||
+			(distanceXNeg && this.getPosY()==bombe.getPosY())||
+			(distanceYNeg && this.getPosX()==bombe.getPosX())){
 			this.vie -= 1;
-			if(this.vie == 0){
-				destructibleNotificationObservateur();
-			}
+//			if(this.vie == 0){
+//				destructibleNotificationObservateur();
+//			}
 		}
 	}
 
@@ -83,6 +90,14 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	
 	public int getnumJoueur(){
 		return this.numJoueur;
+	}
+	
+	public void setBombePortee(int bombePortee){
+		this.bombePortee = bombePortee;
+	}
+	
+	public int getBombePortee(){
+		return this.bombePortee;
 	}
 	
 	public boolean isObstacle() {

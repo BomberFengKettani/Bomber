@@ -34,6 +34,13 @@ public class Plateau extends JPanel {
 	private BufferedImage bombeRouge;
 	
 	public int vieHaut;
+	public int vieBas;
+	
+	public int porteeHaut;
+	public int porteeBas;
+	
+	public int dureeBombeHaut;
+	public int dureeBombeBas;
 	
 	public Plateau(){
 		this.setFocusable(true);
@@ -41,9 +48,33 @@ public class Plateau extends JPanel {
 	}
 	
 	public void paintVieHaut(Graphics g, int vieHaut){
-		int a = vieHaut;
-		String v = String.valueOf(a);
+		String v = String.valueOf(vieHaut);
 		g.drawString(v,26*40,2*40);
+	}
+	
+	public void paintVieBas(Graphics g, int vieBas){
+		String v = String.valueOf(vieBas);
+		g.drawString(v,26*40,8*40);
+	}
+	
+	public void paintdureeBombeHaut(Graphics g, int dureeBombeHaut){
+		String v = String.valueOf(dureeBombeHaut);
+		g.drawString(v, 26*40, 4*40);
+	}
+	
+	public void paintdureeBombeBas(Graphics g, int dureeBombeBas){
+		String v = String.valueOf(dureeBombeBas);
+		g.drawString(v, 26*40, 10*40);
+	}
+	
+	public void paintPorteeBas(Graphics g, int porteeBas){
+		String v = String.valueOf(porteeBas);
+		g.drawString(v, 26*40, 9*40);
+	}
+	
+	public void paintPorteeHaut(Graphics g, int porteeHaut){
+		String v = String.valueOf(porteeHaut);
+		g.drawString(v, 26*40, 3*40);
 	}
 	
 	public void paint(Graphics g) {
@@ -63,16 +94,22 @@ public class Plateau extends JPanel {
 		g.drawString("JoueurHaut", 22*40, 1*40);
 		g.drawString("JoueurBas", 22*40, 7*40);
 		
+		// Haut
 		g.setFont(new Font("default", Font.BOLD, 16));
 		g.drawString("Vie : ", 24*40, 2*40);
 		g.drawString("   Portée : ", 23*40, 3*40);
 		g.drawString("DureeBombe : ", 22*40, 4*40);
-		
+		//Bas
 		g.drawString("Vie : ", 24*40, 8*40);
 		g.drawString("   Portée : ", 23*40, 9*40);
 		g.drawString("DureeBombe : ", 22*40, 10*40);
 
 		this.paintVieHaut(g, this.vieHaut);
+		this.paintVieBas(g, this.vieBas);
+		this.paintdureeBombeBas(g, this.dureeBombeBas);
+		this.paintdureeBombeHaut(g, this.dureeBombeHaut);
+		this.paintPorteeBas(g, this.porteeBas);
+		this.paintPorteeHaut(g, this.porteeHaut);
 		
 		// BomberMan Logo en bas à droite
 		try{

@@ -1,10 +1,11 @@
 package Model;
 
 public abstract class Objets {
-	protected float posX;
-	protected float posY;
-	protected int couleur;
-	protected String type;
+	
+	public float posX;
+	public float posY;
+	public int couleur;
+	public String type;
 	
 	public Objets(float X, float Y, int couleur, String type){
 		this.posX = X;

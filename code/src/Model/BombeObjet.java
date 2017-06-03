@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public abstract class BombeObjet extends Objets implements Runnable, Destructible, Explosable, ExplosableObservateur {
 
-	protected int duree = 0;
+	public int duree = 0;
 	
-	private int portee = 0;
+	public int portee = 0;
 	private int porteeXPos;
 	private int porteeYPos;
 	private int porteeXNeg;

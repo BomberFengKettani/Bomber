@@ -6,11 +6,14 @@ import java.util.ArrayList;
 
 public class Jeu implements DestructibleObservateur{
 	
-	private ArrayList<Objets> objet = new ArrayList<Objets>();
-	private boolean lancer = false;
+	public ArrayList<Objets> objet = new ArrayList<Objets>();
+//	private boolean lancer = false;
 	private Fenetre fenetre;
 	public Joueur Joueur1;
 	public Joueur Joueur2;
+	
+	public int BombeDureeHaut = 5;
+	public int BombeDureeBas = 5;
 	
 	/* Field size */
 	private int x = 21;
@@ -130,6 +133,12 @@ public class Jeu implements DestructibleObservateur{
 		
 		Joueur joueur = ((Joueur) objet.get(numeroJoueur));
 		BombeObjet bombePosee = joueur.poserBombe(bombType);
+		System.out.println(numeroJoueur);
+		if(numeroJoueur == 0){
+			this.BombeDureeBas = bombePosee.duree/1000;
+		}if(numeroJoueur == 1){
+			this.BombeDureeHaut = bombePosee.duree/1000;
+		}
 		
 		if(bombePosee != null){
 			bombePosee.destructibleFixe(this);
@@ -345,13 +354,13 @@ public class Jeu implements DestructibleObservateur{
 		notificationVue();
 	}
 	
-	public void vieUpdate(){
-		fenetre.setvieHaut(Joueur1.getVie());
-	}
-	
 	private void notificationVue(){
-		fenetre.setvieHaut(Joueur1.getVie());
-		System.out.println(fenetre.FenVieHaut);
+		this.fenetre.plateau.vieHaut = Joueur2.getVie();
+		this.fenetre.plateau.vieBas = Joueur1.getVie();
+		this.fenetre.plateau.dureeBombeBas = this.BombeDureeBas;
+		this.fenetre.plateau.dureeBombeHaut = this.BombeDureeHaut;
+		this.fenetre.plateau.porteeBas = Joueur1.getBombePortee();
+		this.fenetre.plateau.porteeHaut = Joueur2.getBombePortee();
 		fenetre.update();
 	}
 
