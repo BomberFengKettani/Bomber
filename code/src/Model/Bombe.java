@@ -42,13 +42,12 @@ public class Bombe extends BombeObjet implements Destructible{
 		
 		ArrayList<Objets> butin = new ArrayList<Objets>();
 		
-		int portee = this.getPortee();
+//		int portee = this.getPortee();
 		float x = this.getPosX();
 		float y = this.getPosY();
 		
-		
 		// XNeg
-		for(float i = x-portee; i <= x; i++){
+		for(float i = x-this.getporteeXNeg(); i <= x; i++){
 			Explosion explosion = new Explosion(i,y,500); // 500 ms
 			Thread thread = new Thread(explosion);
 			thread.start();
@@ -59,7 +58,7 @@ public class Bombe extends BombeObjet implements Destructible{
 			butin.add(explosion);
 		}
 		// XPos
-		for(float i = x; i <= x+portee; i++){
+		for(float i = x; i <= x+this.getporteeXPos(); i++){
 			Explosion explosion = new Explosion(i,y,500); // 500 ms
 			Thread thread = new Thread(explosion);
 			thread.start();
@@ -70,7 +69,7 @@ public class Bombe extends BombeObjet implements Destructible{
 			butin.add(explosion);
 		}
 		// YNeg
-		for(float i = y-portee; i <= y; i++){
+		for(float i = y-this.getporteeYNeg(); i <= y; i++){
 			Explosion explosion = new Explosion(x,i,500); // 500 ms
 			Thread thread = new Thread(explosion);
 			thread.start();
@@ -81,7 +80,7 @@ public class Bombe extends BombeObjet implements Destructible{
 			butin.add(explosion);
 		}
 		// YPos
-		for(float i = y; i <= y+portee; i++){
+		for(float i = y; i <= y+this.getporteeYPos(); i++){
 			Explosion explosion = new Explosion(x,i,500); // 500 ms
 			Thread thread = new Thread(explosion);
 			thread.start();
@@ -91,7 +90,6 @@ public class Bombe extends BombeObjet implements Destructible{
 			}
 			butin.add(explosion);
 		}
-		
 		
 		// bomb image
 		for (DestructibleObservateur o : this.destructibleObservateurs) {

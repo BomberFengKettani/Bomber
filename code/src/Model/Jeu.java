@@ -139,40 +139,58 @@ public class Jeu implements DestructibleObservateur{
 			int[] valeurYNeg = new int[bombePosee.getPortee()+1];
 			int[] valeurYPos = new int[bombePosee.getPortee()+1];
 			
-			int compteurXNeg = 0;
-			int compteurXPos = 0;
-			
-			int compteurYNeg = 0;
-			int compteurYPos = 0;
 			for(Objets objet : objet){
 				// XNeg
 				if(objet.getPosY() == bombePosee.getPosY() &&
-					objet.getPosX() >= bombePosee.getPosX()-bombePosee.getPortee() && objet.getPosX() <= bombePosee.getPosX() &&
-					objet.type == "BlockFranchissable" ){
-					valeurXNeg[compteurXNeg] = 1;
-					compteurXNeg += 1;
+					objet.getPosX() >= bombePosee.getPosX()-bombePosee.getPortee() && objet.getPosX() < bombePosee.getPosX()){
+					if(objet.type == "BlockFranchissable"){
+						valeurXNeg[(int)bombePosee.getPosX()-(int)objet.getPosX()] = 1;
+					}else if(objet.type == "BlockNonFranchissable"){
+						valeurXNeg[(int)bombePosee.getPosX()-(int)objet.getPosX()] = 2;
+					}else if(objet.type != "BlockFranchissable" && objet.type != "BlockNonFranchissable"){
+						valeurXNeg[(int)bombePosee.getPosX()-(int)objet.getPosX()] = 0;
+					}
 				}
+				
 				// XPos
 				if(objet.getPosY() == bombePosee.getPosY() &&
-					objet.getPosX() >= bombePosee.getPosX() && objet.getPosX() <= bombePosee.getPosX()+bombePosee.getPortee() &&
-					objet.type == "BlockFranchissable"){
-					valeurXPos[compteurXPos] = 1;
-					compteurXPos += 1;
+					objet.getPosX() >= bombePosee.getPosX() && objet.getPosX() <= bombePosee.getPosX()+bombePosee.getPortee()){
+					if(objet.type == "BlockFranchissable"){
+						valeurXPos[(int)objet.getPosX()-(int)bombePosee.getPosX()] = 1;
+					}else if(objet.type == "BlockNonFranchissable"){
+						valeurXPos[(int)objet.getPosX()-(int)bombePosee.getPosX()] = 2;
+					}else if(objet.type != "BlockFranchissable" && objet.type != "BlockNonFranchissable"){
+						valeurXPos[(int)objet.getPosX()-(int)bombePosee.getPosX()] = 0;
+					}
 				}
+				
 				// YNeg
 				if(objet.getPosX() == bombePosee.getPosX() &&
-					objet.getPosY() >= bombePosee.getPosY()-bombePosee.getPortee() && objet.getPosY() <= bombePosee.getPosY() &&
-					objet.type == "BlockFranchissable"){
-					valeurYNeg[compteurYNeg] = 1;
-					compteurYNeg += 1;
+					objet.getPosY() >= bombePosee.getPosY()-bombePosee.getPortee() && objet.getPosY() < bombePosee.getPosY()){
+					if(objet.type == "BlockFranchissable"){
+						valeurYNeg[(int)bombePosee.getPosY()-(int)objet.getPosY()] = 1;
+					}else if(objet.type == "BlockNonFranchissable"){
+						valeurYNeg[(int)bombePosee.getPosY()-(int)objet.getPosY()] = 2;
+					}else if(objet.type != "BlockFranchissable" && objet.type != "BlockNonFranchissable"){
+						valeurYNeg[(int)bombePosee.getPosY()-(int)objet.getPosY()] = 0;
+					}
 				}
+
 				// YPos
 				if(objet.getPosX() == bombePosee.getPosX() &&
-					objet.getPosY() >= bombePosee.getPosY() && objet.getPosY() <= bombePosee.getPosY()+bombePosee.getPortee() &&
-					objet.type == "BlockFranchissable"){
-					valeurYPos[compteurYPos] = 1;
-					compteurYPos += 1;
+					objet.getPosY() >= bombePosee.getPosY() && objet.getPosY() <= bombePosee.getPosY()+bombePosee.getPortee()){
+					if(objet.type == "BlockFranchissable"){
+						valeurYPos[(int)objet.getPosY()-(int)bombePosee.getPosY()] = 1;
+					}else if(objet.type == "BlockNonFranchissable"){
+						valeurYPos[(int)objet.getPosY()-(int)bombePosee.getPosY()] = 2;
+					}else if(objet.type != "BlockFranchissable" && objet.type != "BlockNonFranchissable"){
+						valeurYPos[(int)objet.getPosY()-(int)bombePosee.getPosY()] = 0;
+					}
 				}
+			}
+
+			for(int i = 0; i<valeurYNeg.length; i++){
+				System.out.print(valeurYNeg[i]);
 			}
 			
 			// ADD OBJET TO BE EXPLODE
@@ -180,18 +198,27 @@ public class Jeu implements DestructibleObservateur{
 				
 				// XPos
 				int indiceXPos = 0;
-				while(valeurXPos[indiceXPos]==1 && indiceXPos != valeurXPos.length-1){
+				while(indiceXPos < valeurXPos.length && valeurXPos[indiceXPos]==0){
 					indiceXPos +=1;
 				}
-				indiceXPos = valeurXPos.length - indiceXPos;
+				if(indiceXPos >= 4){ // Eviter le débordement
+					indiceXPos = bombePosee.getPortee();
+				}
+				if(valeurXPos[indiceXPos] == 2){ // Eviter d'afficher l'effet explosion sur les BlockNonFranchissables
+					indiceXPos -= 1;
+				}
+				// Fixe la portee 
+				bombePosee.setporteeXPos(indiceXPos);
 				// test d'instanciation
-				if(objet instanceof Explosable &&
+				if(indiceXPos < valeurXPos.length && valeurXPos[indiceXPos]==1 &&
+					objet instanceof Explosable &&
 					objet.getPosX()>=bombePosee.getPosX() && objet.getPosX()<=bombePosee.getPosX()+indiceXPos &&
 					objet.getPosY()==bombePosee.getPosY()){
 					// add object to be explode
 					((BombeObjet) objet).explosableFixe(((ExplosableObservateur) bombePosee));
 				}
-				if(objet instanceof ExplosableObservateur &&
+				if(indiceXPos < valeurXPos.length && valeurXPos[indiceXPos]==1 &&
+					objet instanceof ExplosableObservateur &&
 					objet.getPosX()>=bombePosee.getPosX() && objet.getPosX()<=bombePosee.getPosX()+indiceXPos &&
 					objet.getPosY()==bombePosee.getPosY()){
 					bombePosee.explosableFixe(((ExplosableObservateur) objet));
@@ -199,18 +226,27 @@ public class Jeu implements DestructibleObservateur{
 				
 				// XNeg
 				int indiceXNeg = 0;
-				while(valeurXNeg[indiceXNeg]==1){
+				while(indiceXNeg < valeurXNeg.length && valeurXNeg[indiceXNeg]==0){
 					indiceXNeg +=1;
 				}
-				indiceXNeg = valeurXNeg.length - indiceXNeg;
+				if(indiceXNeg >= 4){
+					indiceXNeg = bombePosee.getPortee();
+				}
+				if(valeurXNeg[indiceXNeg] == 2){
+					indiceXNeg -= 1;
+				}
+				// Fixe la portee 
+				bombePosee.setporteeXNeg(indiceXNeg);
 				// test d'instanciation
-				if(objet instanceof Explosable &&
+				if(indiceXNeg < valeurXNeg.length && valeurXNeg[indiceXNeg]==1 &&
+					objet instanceof Explosable &&
 					objet.getPosX()>=bombePosee.getPosX()-indiceXNeg && objet.getPosX()<=bombePosee.getPosX() && 
 					objet.getPosY()==bombePosee.getPosY()){
 					// add object to be explode
 					((BombeObjet) objet).explosableFixe(((ExplosableObservateur) bombePosee));
 				}
-				if(objet instanceof ExplosableObservateur &&
+				if(indiceXNeg < valeurXNeg.length && valeurXNeg[indiceXNeg]==1 &&
+					objet instanceof ExplosableObservateur &&
 					objet.getPosX()>=bombePosee.getPosX()-indiceXNeg && objet.getPosX()<=bombePosee.getPosX() && 
 					objet.getPosY()==bombePosee.getPosY()){
 					bombePosee.explosableFixe(((ExplosableObservateur) objet));
@@ -218,18 +254,27 @@ public class Jeu implements DestructibleObservateur{
 				
 				// YPos
 				int indiceYPos = 0;
-				while(valeurYPos[indiceYPos]==1 && indiceYPos != valeurYPos.length-1){
+				while(indiceYPos < valeurYPos.length && valeurYPos[indiceYPos]==0){
 					indiceYPos +=1;
 				}
-				indiceYPos = valeurYPos.length - indiceYPos;
+				if(indiceYPos >= 4){
+					indiceYPos = bombePosee.getPortee();
+				}
+				if(valeurYPos[indiceYPos]==2){
+					indiceYPos -= 1;
+				}
+				// Fixe la portee 
+				bombePosee.setporteeYPos(indiceYPos);
 				// test d'instanciation
-				if(objet instanceof Explosable &&
+				if(indiceYPos < valeurYPos.length && valeurYPos[indiceYPos]==1 && 
+					objet instanceof Explosable &&
 					objet.getPosY()>= bombePosee.getPosY() && objet.getPosY()<=bombePosee.getPosY()+indiceYPos &&
 					objet.getPosX()==bombePosee.getPosX()){
 					// add object to be explode
 					((BombeObjet) objet).explosableFixe(((ExplosableObservateur) bombePosee));
 				}
-				if(objet instanceof ExplosableObservateur &&
+				if(indiceYPos < valeurYPos.length && valeurYPos[indiceYPos]==1 &&
+					objet instanceof ExplosableObservateur &&
 					objet.getPosY()>= bombePosee.getPosY() && objet.getPosY()<=bombePosee.getPosY()+indiceYPos &&
 					objet.getPosX()==bombePosee.getPosX()){
 					bombePosee.explosableFixe(((ExplosableObservateur) objet));
@@ -237,18 +282,27 @@ public class Jeu implements DestructibleObservateur{
 				
 				// YNeg
 				int indiceYNeg = 0;
-				while(valeurYNeg[indiceYNeg]==1){
+				while(indiceYNeg < valeurYNeg.length && valeurYNeg[indiceYNeg]==0){
 					indiceYNeg +=1;
 				}
-				indiceYNeg = valeurYNeg.length - indiceYNeg;
+				if(indiceYNeg >= 4){
+					indiceYNeg = bombePosee.getPortee();
+				}
+				if(valeurYNeg[indiceYNeg]==2){
+					indiceYNeg -= 1;
+				}
+				// Fixe la portee 
+				bombePosee.setporteeYNeg(indiceYNeg);
 				// test d'instanciation
-				if(objet instanceof Explosable &&
+				if(indiceYNeg < valeurYNeg.length && valeurYNeg[indiceYNeg]==1 &&
+					objet instanceof Explosable &&
 					objet.getPosY()>=bombePosee.getPosY()-indiceYNeg && objet.getPosY()<=bombePosee.getPosY() && 
 					objet.getPosX()==bombePosee.getPosX()){
 					// add object to be explode
 					((BombeObjet) objet).explosableFixe(((ExplosableObservateur) bombePosee));
 				}
-				if(objet instanceof ExplosableObservateur &&
+				if(indiceYNeg < valeurYNeg.length && valeurYNeg[indiceYNeg]==1 &&
+					objet instanceof ExplosableObservateur &&
 					objet.getPosY()>=bombePosee.getPosY()-indiceYNeg && objet.getPosY()<=bombePosee.getPosY() && 
 					objet.getPosX()==bombePosee.getPosX()){
 					bombePosee.explosableFixe(((ExplosableObservateur) objet));

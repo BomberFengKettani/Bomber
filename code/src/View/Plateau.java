@@ -25,7 +25,7 @@ public class Plateau extends JPanel {
 	private BufferedImage joueur2;
 	private BufferedImage Bombe;
 	private BufferedImage explosion;
-	private BufferedImage Bear;
+	private BufferedImage bombermanJeu;
 	
 	public Plateau(){
 		this.setFocusable(true);
@@ -59,12 +59,12 @@ public class Plateau extends JPanel {
 		g.drawString("DureeBombe : ", 22*40, 10*40);
 
 		try{
-			Bear = ImageIO.read(getClass().getResourceAsStream("/Images/bombermanJeu.png"));
+			bombermanJeu = ImageIO.read(getClass().getResourceAsStream("/Images/bombermanJeu.png"));
 		} catch(IOException e){
 			e.printStackTrace();
 		}
 		
-		g.drawImage(Bear, 23*40, 13*40, 150, 150, null);
+		g.drawImage(bombermanJeu, 23*40, 13*40, 150, 150, null);
 		
 		try{
 			terrain = ImageIO.read(getClass().getResourceAsStream("/Images/terrain.jpg"));
