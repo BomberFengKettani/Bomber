@@ -23,6 +23,11 @@ public class Clavier implements KeyListener{
 		switch (key){
 			// Player 1
 			case KeyEvent.VK_RIGHT:
+				try{
+					Thread.sleep(5000);
+				} catch(Exception e){
+					e.printStackTrace();
+				}
 				jeu.bougerJoueur(1, 0, Joueur2);
 				break;
 			case KeyEvent.VK_LEFT:

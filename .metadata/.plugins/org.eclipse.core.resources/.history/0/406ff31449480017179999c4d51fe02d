@@ -1,6 +1,5 @@
 package controle;
 
-import java.io.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -22,7 +21,7 @@ public class Clavier implements KeyListener{
 		
 		switch (key){
 			// Player 1
-			case KeyEvent.VK_RIGHT:
+			case KeyEvent.VK_RIGHT: 
 				jeu.bougerJoueur(1, 0, Joueur2);
 				break;
 			case KeyEvent.VK_LEFT:

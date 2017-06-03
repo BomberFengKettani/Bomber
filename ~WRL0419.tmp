@@ -37,9 +37,9 @@
 \af0\afs22\alang1025 \ltrch\fcs0 \fs22\lang1036\langfe1036\loch\f31506\hich\af31506\dbch\af31505\cgrid\langnp1036\langfenp1036 \snext0 \sqformat \spriority0 Normal;}{\*\cs10 \additive \ssemihidden \sunhideused \spriority1 Default Paragraph Font;}{\*
 \ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tblind0\tblindtype3\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv \ql \li0\ri0\sa160\sl259\slmult1
 \widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af0\afs22\alang1025 \ltrch\fcs0 \fs22\lang1036\langfe1036\loch\f31506\hich\af31506\dbch\af31505\cgrid\langnp1036\langfenp1036 \snext11 \ssemihidden \sunhideused 
-Normal Table;}}{\*\rsidtbl \rsid801029\rsid1472257\rsid1911335\rsid2260009\rsid6294902\rsid10253136\rsid12664078\rsid14893229\rsid16078314\rsid16145410}{\mmathPr\mmathFont34\mbrkBin0\mbrkBinSub0\msmallFrac0\mdispDef1\mlMargin0\mrMargin0\mdefJc1
-\mwrapIndent1440\mintLim0\mnaryLim1}{\info{\operator David Feng}{\creatim\yr2017\mo6\dy2\min30}{\revtim\yr2017\mo6\dy3\hr12\min43}{\version9}{\edmins1081}{\nofpages2}{\nofwords265}{\nofchars1460}{\nofcharsws1722}{\vern57443}}{\*\xmlnstbl {\xmlns1 http://s
-chemas.microsoft.com/office/word/2003/wordml}}\paperw12240\paperh15840\margl1417\margr1417\margt1417\margb1417\gutter0\ltrsect 
+Normal Table;}}{\*\rsidtbl \rsid801029\rsid1472257\rsid1911335\rsid6294902\rsid10253136\rsid16078314\rsid16145410}{\mmathPr\mmathFont34\mbrkBin0\mbrkBinSub0\msmallFrac0\mdispDef1\mlMargin0\mrMargin0\mdefJc1\mwrapIndent1440\mintLim0\mnaryLim1}{\info
+{\operator David Feng}{\creatim\yr2017\mo6\dy2\min30}{\revtim\yr2017\mo6\dy3\hr12\min11}{\version7}{\edmins1049}{\nofpages1}{\nofwords221}{\nofchars1218}{\nofcharsws1437}{\vern57443}}{\*\xmlnstbl {\xmlns1 http://schemas.microsoft.com/office/word/2003/word
+ml}}\paperw12240\paperh15840\margl1417\margr1417\margt1417\margb1417\gutter0\ltrsect 
 \widowctrl\ftnbj\aenddoc\hyphhotz425\trackmoves0\trackformatting1\donotembedsysfont0\relyonvml0\donotembedlingdata1\grfdocevents0\validatexml0\showplaceholdtext0\ignoremixedcontent0\saveinvalidxml0\showxmlerrors0\horzdoc\dghspace120\dgvspace120
 \dghorigin1701\dgvorigin1984\dghshow0\dgvshow3\jcompress\viewkind1\viewscale100\rsidroot1911335 \nouicompat \fet0{\*\wgrffmtfilter 2450}\nofeaturethrottle1\ilfomacatclnup0\ltrpar \sectd \ltrsect\linex0\sectdefaultcl\sftnbj {\*\pnseclvl1
 \pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5
@@ -58,33 +58,22 @@ chemas.microsoft.com/office/word/2003/wordml}}\paperw12240\paperh15840\margl1417
 \par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 \hich\af2\dbch\af31505\loch\f2 - menu / rejouer
 \par \hich\af2\dbch\af31505\loch\f2 - fin de jeu}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid1911335 \hich\af2\dbch\af31505\loch\f2 , annonce vainqueur}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
 \par 
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229\charrsid14893229 \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bombe d\'e9\loch\f2 \hich\f2 part avec un rayon de 3 cases de tous les c\'f4\loch\f2 \hich\f2 t\'e9\loch\f2 s
-\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid14893229 {\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229 \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bombes port\'e9\loch\f2 es 1 case si obstacle}{\rtlch\fcs1 \af2 
-\ltrch\fcs0 \f2\cf6\insrsid14893229 
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229\charrsid801029 \hich\af2\dbch\af31505\loch\f2 - Block}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229 \hich\af2\dbch\af31505\loch\f2  }{\rtlch\fcs1 \af2 \ltrch\fcs0 
-\f2\cf6\insrsid14893229\charrsid801029 \hich\af2\dbch\af31505\loch\f2 Non}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229 \hich\af2\dbch\af31505\loch\f2  }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229\charrsid801029 
-\hich\af2\dbch\af31505\loch\f2 Franchissable bloqu\hich\af2\dbch\af31505\loch\f2 e\hich\af2\dbch\af31505\loch\f2  l'explosion}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229 
-\par \hich\af2\dbch\af31505\loch\f2 - Block Franchissable d\loch\af2\dbch\af31505\hich\f2 \'e9\loch\f2 truit par l\loch\af2\dbch\af31505\hich\f2 \rquote \hich\af2\dbch\af31505\loch\f2 explosion et elle\hich\af2\dbch\af31505\loch\f2  n
-\loch\af2\dbch\af31505\hich\f2 \rquote \hich\af2\dbch\af31505\loch\f2 ira pas plus\hich\af2\dbch\af31505\loch\f2  loin
-\par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - si Block Franchissable d\'e9\loch\f2 duit, devien\hich\af2\dbch\af31505\loch\f2 t donc franchissable par les joueurs
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229\charrsid1472257 \hich\af2\dbch\af31505\loch\f2 - a}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229 \hich\af2\dbch\af31505\loch\f2 ffichage en dehors de la grille
-\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0 {\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229\charrsid14893229 \hich\af2\dbch\af31505\loch\f2 - une bombe est inf\hich\af2\dbch\af31505\loch\f2 r
-\hich\af2\dbch\af31505\loch\f2 anchissable}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229 
-\par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - 5 secondes apr\'e8\loch\f2 \hich\f2 s avoir pos\'e9\loch\f2 , la bombe explose}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid14893229\charrsid14893229 
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid2260009 \hich\af2\dbch\af31505\loch\f2 - 1 seule bombe par case}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 \hich\af2\dbch\af31505\loch\f2 \hich\f2 - 3 bombes max pos\'e9\loch\f2 es }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid1911335 \hich\af2\dbch\af31505\loch\f2 \hich\f2 simultan\'e9\loch\f2 ment}{\rtlch\fcs1 
-\af2 \ltrch\fcs0 \f2\insrsid6294902 
-\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0\pararsid14893229 {\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bombe explose, engendre l'explosion de la bombe \'e0\loch\f2 \hich\f2  c
-\'f4\loch\f2 \hich\f2 t\'e9
-\par }\pard \ltrpar\ql \li0\ri0\nowidctlpar\wrapdefault\faauto\rin0\lin0\itap0 {\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid10253136\charrsid16145410 
+\par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - 3 bombes max pos\'e9\loch\f2 es }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid1911335 \hich\af2\dbch\af31505\loch\f2 \hich\f2 simultan\'e9\loch\f2 ment}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
+\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid6294902\charrsid1472257 \hich\af2\dbch\af31505\loch\f2 - affichage en dehors de la grille
+\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid6294902 \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bombes port\'e9\loch\f2 es 1 case si obstacle}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
+\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid1911335\charrsid801029 \hich\af2\dbch\af31505\loch\f2 - Block}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16145410 \hich\af2\dbch\af31505\loch\f2  }{\rtlch\fcs1 \af2 \ltrch\fcs0 
+\f2\cf6\insrsid1911335\charrsid801029 \hich\af2\dbch\af31505\loch\f2 Non}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16145410 \hich\af2\dbch\af31505\loch\f2  }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid1911335\charrsid801029 
+\hich\af2\dbch\af31505\loch\f2 Franchissable bloqu\hich\af2\dbch\af31505\loch\f2 e}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid6294902\charrsid801029 \hich\af2\dbch\af31505\loch\f2  l'explosion}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid6294902 
+\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16078314 \hich\af2\dbch\af31505\loch\f2 \hich\f2 - g\'e9\loch\f2 rer les effets explosions}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16078314\charrsid801029 
+\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16145410 \hich\af2\dbch\af31505\loch\f2 - si B}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid10253136\charrsid16145410 \hich\af2\dbch\af31505\loch\f2 lock}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16145410 
+\hich\af2\dbch\af31505\loch\f2  N}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid10253136\charrsid16145410 \hich\af2\dbch\af31505\loch\f2 on}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\cf6\insrsid16145410 \hich\af2\dbch\af31505\loch\f2  F}{\rtlch\fcs1 \af2 
+\ltrch\fcs0 \f2\cf6\insrsid10253136\charrsid16145410 \hich\af2\dbch\af31505\loch\f2 ranchissable, ne pas afficher l\hich\f2 \rquote \loch\f2 effet explosion
 \par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 \hich\af2\dbch\af31505\loch\f2 - }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid1472257 \hich\af2\dbch\af31505\loch\f2 joueurs vie 3 et }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
-\hich\af2\dbch\af31505\loch\f2 perte de vie}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 \hich\af2\dbch\af31505\loch\f2 \hich\f2  si touch\'e9\loch\f2  par une explosion}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
+\hich\af2\dbch\af31505\loch\f2 perte de vie
+\par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bombe explose, engendre l'explosion de la bombe \'e0\loch\f2 \hich\f2  c\'f4\loch\f2 \hich\f2 t\'e9
 \par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid1911335 \hich\af2\dbch\af31505\loch\f2 - changer vitesse du clavier
 \par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
-\par \hich\af2\dbch\af31505\loch\f2 - 20% chance bonus}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 \hich\af2\dbch\af31505\loch\f2 \hich\f2  si block Franchissable est d\'e9\loch\f2 truit}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 
-\hich\af2\dbch\af31505\loch\f2 \hich\f2  : non d\'e9\loch\f2 truisable, jusqu'}{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 \loch\af2\dbch\af31505\hich\f2 \'e0\loch\f2  }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 \hich\af2\dbch\af31505\loch\f2 
-un\hich\af2\dbch\af31505\loch\f2  joueur le prend
+\par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - 20% chance bonus : non d\'e9\loch\f2 truisable, jusqu'un\hich\af2\dbch\af31505\loch\f2  joueur le prend
 \par \hich\af2\dbch\af31505\loch\f2 - affichage bonus
 \par 
 \par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - flamme bleu : -1 port\'e9\loch\f2 \hich\f2 e et 1 port\'e9\loch\f2 e min bombe
@@ -100,8 +89,8 @@ un\hich\af2\dbch\af31505\loch\f2  joueur le prend
 \par \hich\af2\dbch\af31505\loch\f2 - son : barre de son
 \par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bouton param\'e8\loch\f2 tre : son, exit
 \par \hich\af2\dbch\af31505\loch\f2 - changer avatar
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid14893229 
-\par }{\rtlch\fcs1 \af2 \ltrch\fcs0 \f2\insrsid6294902 \hich\af2\dbch\af31505\loch\f2 Facultatif :
+\par 
+\par \hich\af2\dbch\af31505\loch\f2 Facultatif :
 \par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - flamme verte : duree explosion -1s (3s min) et +1 port\'e9\loch\f2 e (max 10)
 \par \hich\af2\dbch\af31505\loch\f2 \hich\f2 - bombe mine : (unique) 1\'e8\loch\f2 \hich\f2 re bombe s'enterre apr\'e8\loch\f2 s 3s, explose si un joeur passe dessus
 \par \hich\af2\dbch\af31505\loch\f2 - bombe rebondissante : (unique)
@@ -250,8 +239,8 @@ fffffffffffffffffdfffffffeffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffffffffffff0c6ad98892f1d411a65f0040963251e500000000000000000000000010fe
-e94b56dcd201feffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+ffffffffffffffffffffffffffffffff52006f006f007400200045006e00740072007900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000016000500ffffffffffffffffffffffff0c6ad98892f1d411a65f0040963251e50000000000000000000000006070
+fcc651dcd201feffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000
 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffff000000000000000000000000000000000000000000000000
 0000000000000000000000000000000000000000000000000105000000000000}}
