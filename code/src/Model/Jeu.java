@@ -7,18 +7,20 @@ import java.util.ArrayList;
 public class Jeu implements DestructibleObservateur{
 	
 	private ArrayList<Objets> objet = new ArrayList<Objets>();
-//	private boolean lancer = false;
+	private boolean lancer = false;
 	private Fenetre fenetre;
+	public Joueur Joueur1;
+	public Joueur Joueur2;
 	
 	/* Field size */
 	private int x = 21;
 	private int y = 17;
 	
-	public Jeu(Fenetre fenetre){
+	public Jeu(Fenetre fenetre, Joueur joueur1, Joueur joueur2){
 		this.fenetre = fenetre;
 		
-		Joueur Joueur1 = new Joueur(1,15,2,3,3,0); // (x,y,couleur,maxbomb,vie,numJoueur)
-		Joueur Joueur2 = new Joueur(19,1,6,3,3,1);
+		this.Joueur1 = joueur1;
+		this.Joueur2 = joueur2;
 		
 		// Creating one Player at position (1,15), bas gauche
 		objet.add(Joueur1);
@@ -310,7 +312,7 @@ public class Jeu implements DestructibleObservateur{
 	}
 	
 	
-	public void bougerJoueur(int x, int y, int playerNumber){
+	public void bougerJoueur(float x, float y, int playerNumber){
 		Joueur joueur = ((Joueur) objet.get(playerNumber));
 		
 		float nextX = joueur.getPosX()+x;
@@ -335,19 +337,21 @@ public class Jeu implements DestructibleObservateur{
 	}
 	
 	// Object destruction
-	synchronized public void detruit(Destructible ps, ArrayList<Objets> butin) {
-		objet.remove(ps);
+	synchronized public void detruit(Destructible d, ArrayList<Objets> butin) {
+		objet.remove(d);
 		if(butin != null){
 			objet.addAll(butin);
 		}
 		notificationVue();
 	}
 	
-//	public void run(){
-//		this.lancer = true;
-//	}
+	public void vieUpdate(){
+		fenetre.setvieHaut(Joueur1.getVie());
+	}
 	
 	private void notificationVue(){
+		fenetre.setvieHaut(Joueur1.getVie());
+		System.out.println(fenetre.FenVieHaut);
 		fenetre.update();
 	}
 

@@ -22,6 +22,7 @@ public class Bombe extends BombeObjet implements Destructible{
 		}
 		this.destructibleNotificationObservateur();
 		this.explosableNotificationObservateur();
+		Son.jouerSon("/Sons/Explosion.wav");
 	}
 
 	

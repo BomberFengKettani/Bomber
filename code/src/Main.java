@@ -1,4 +1,5 @@
 import Model.Jeu;
+import Model.Joueur;
 import Model.Son;
 import Model.Menu;
 import View.Fenetre;
@@ -7,12 +8,15 @@ import controle.Clavier;
 // David
 public class Main{
 	public static void main(String[] args) {
-	
-		Fenetre fenetre = new Fenetre();
-		//Son.jouerSon("/Sons/Powerup.wav");
-		Jeu jeu = new Jeu(fenetre);
+		
+		Joueur Joueur1 = new Joueur(1,15,2,"Joueur1",3,3,1); // (x,y,couleur,"joueur",maxbomb,vie,numJoueur)
+		Joueur Joueur2 = new Joueur(19,1,6,"Joueur2",3,3,2);
+		
+		Fenetre fenetre = new Fenetre(Joueur1, Joueur2);
+		Jeu jeu = new Jeu(fenetre, Joueur1, Joueur2);
 		Clavier clavier = new Clavier(jeu);
 		fenetre.setKeyListener(clavier);
-		
+		//Son.jouerSon("/Sons/theme.wav");
+	
 	}
 }

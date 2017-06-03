@@ -10,7 +10,7 @@ public class Son{
 			Clip clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(Son.class.getResourceAsStream(nom)));
 			clip.start();
-			Thread.sleep(clip.getMicrosecondLength());
+			Thread.sleep(clip.getMicrosecondLength()/1000);
 			clip.close();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
