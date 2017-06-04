@@ -7,7 +7,6 @@ INDEX VERSION 1.130+C:\Users\feng_\Documents\GitHub\Bomber\.metadata\.plugins\or
 1599172234.index
 3599075443.index
 3261555235.index
-1838168659.index
 1696300077.index
 1468096495.index
 158596618.index

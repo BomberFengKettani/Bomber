@@ -269,7 +269,7 @@ public class Plateau extends JPanel {
 		}
 	}
 	
-	public void setObjets(ArrayList<Objets> objet){
+	public void setObjects(ArrayList<Objets> objet){
 		this.objet = objet;
 	}
 	

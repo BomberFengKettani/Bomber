@@ -27,7 +27,7 @@ public class Fenetre {
 	}	
 	
 	public void setJeuObjets(ArrayList<Objets> objets){
-		this.plateau.setObjets(objets);
+		this.plateau.setObjects(objets);
 		this.plateau.redraw();
 	}
 	

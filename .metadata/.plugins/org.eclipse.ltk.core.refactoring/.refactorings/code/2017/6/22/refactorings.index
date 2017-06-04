@@ -3,3 +3,5 @@
 1496502618226	Rename field 'vieHaut'
 1496521588800	Rename field 'bombPortee'
 1496569754492	Rename field 'maxBomb'
+1496588699319	Rename local variable 'objects'
+1496588780789	Rename method 'setObjects'

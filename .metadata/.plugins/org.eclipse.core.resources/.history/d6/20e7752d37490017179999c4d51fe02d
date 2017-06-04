@@ -26,8 +26,8 @@ public class Fenetre {
 	    window.setVisible(true);
 	}	
 	
-	public void setJeuObjets(ArrayList<Objets> objets){
-		this.plateau.setObjets(objets);
+	public void setJeuObjets(ArrayList<Objets> objects){
+		this.plateau.setObjects(objects);
 		this.plateau.redraw();
 	}
 	
