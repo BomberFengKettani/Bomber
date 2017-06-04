@@ -102,14 +102,7 @@ public class Plateau extends JPanel {
 		} catch(IOException e){
 			e.printStackTrace();
 		}
-		g.drawImage(gameOver, 3*40, 5*40, null);
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("default", Font.BOLD, 40));
-		if(this.lostJoueur1 == true){
-			g.drawString("JoueurBas a perdu ...", 13*40, 10*40);
-		}else if(this.lostJoueur2 == true){
-			g.drawString("JoueurHaut a perdu ...", 13*40, 10*40);
-		}
+		g.drawImage(gameOver, 4*40, 5*40, null);
 	}
 	
 	public void paint(Graphics g) {

@@ -106,9 +106,9 @@ public class Plateau extends JPanel {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("default", Font.BOLD, 40));
 		if(this.lostJoueur1 == true){
-			g.drawString("JoueurBas a perdu ...", 13*40, 10*40);
+			g.drawString("JoueurBas a perdu ...", 12*40, 10*40);
 		}else if(this.lostJoueur2 == true){
-			g.drawString("JoueurHaut a perdu ...", 13*40, 10*40);
+			g.drawString("JoueurHaut a perdu ...", 12*40, 10*40);
 		}
 	}
 	

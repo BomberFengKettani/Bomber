@@ -375,18 +375,13 @@ public class Jeu implements DestructibleObservateur{
 	}
 	
 	public boolean isEnd(){
-		if(Joueur1.getVie() <= 0 || Joueur2.getVie() <= 0){
+		if(Joueur1.getVie() == 0 || Joueur2.getVie() == 0){
 			return true;
 		}return false;
 	}
 	
 	public void annonceVictoire(){
 		this.fenetre.plateau.isEnd = true;
-		if(Joueur1.getVie() <= 0){
-			this.fenetre.plateau.lostJoueur1 = true;
-		}else if(Joueur2.getVie() <= 0){
-			this.fenetre.plateau.lostJoueur2 = true;
-		}
 		objet.removeAll(objet);
 	}
 	
