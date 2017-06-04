@@ -19,7 +19,7 @@ public class Fenetre {
 	    // Exit and stop the program
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    // window dimension
-	    window.setBounds(230, 40, 1200, 728); // (posX, posY, largeurX, largeurY)
+	    window.setBounds(230, 40, 1500, 728); // (posX, posY, largeurX, largeurY)
 	    
 	    window.getContentPane().setBackground(Color.gray);
 	    window.getContentPane().add(this.plateau);

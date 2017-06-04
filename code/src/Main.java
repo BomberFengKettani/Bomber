@@ -16,6 +16,11 @@ public class Main{
 		Jeu jeu = new Jeu(fenetre, Joueur1, Joueur2);
 		Clavier clavier = new Clavier(jeu);
 		fenetre.setKeyListener(clavier);
+		while(true){
+			if(jeu.isEnd() == true){
+				jeu.annonceVictoire();
+			}
+		}
 		
 		//Son.jouerSon("/Sons/theme.wav");
 	

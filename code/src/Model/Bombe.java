@@ -32,7 +32,7 @@ public class Bombe extends BombeObjet implements Destructible{
 		boolean distanceX = Math.abs(this.getPosX() - bombe.getPosX()) <= bombe.getPortee() && this.getPosY() == bombe.getPosY();
 		boolean distanceY = Math.abs(this.getPosY() - bombe.getPosY()) <= bombe.getPortee() && this.getPosX() == bombe.getPosX();
 		
-		if(distanceX && distanceY){
+		if(distanceX || distanceY){
 			this.detonated = true;
 			this.destructibleNotificationObservateur();		
 		}

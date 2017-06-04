@@ -1,12 +1,11 @@
 package Model;
 
-import Model.Jeu;
 import java.util.ArrayList;
 
 public class Joueur extends Objets implements DestructibleObservateur, ExplosableObservateur, Destructible{
 	
-	int countBomb = 0;
-	int maxBomb = 0;
+	int countBomb;
+	int maxBombe;
 	int bombePortee = 3;
 	int vie;
 	int numJoueur;
@@ -15,7 +14,7 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	
 	public Joueur(float x, float y, int couleur, String joueur, int maxBomb, int vie, int numJoueur){
 		super(x,y,couleur,joueur);
-		this.maxBomb = maxBomb;
+		this.maxBombe = maxBomb;
 		this.countBomb = maxBomb;
 		this.vie = vie;
 		this.numJoueur = numJoueur;
@@ -27,13 +26,13 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	}
 
 	public BombeObjet poserBombe(String type){
-		if(this.maxBomb > 0){
-			this.maxBomb = this.maxBomb - 1;
+		if(this.maxBombe > 0){
+			this.maxBombe = this.maxBombe - 1;
 			BombeObjet bombe = null;
 			
 			if(type.equals("nuke")){
 				bombe = new Nuke(this.posX, this.posY, 5000, this.bombePortee); // 5 000 ms
-			}else if(type.equals("bomb")){
+			}else if(type.equals("bombe")){
 				int duree = 5000;
 				bombe = new Bombe(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
 			}
@@ -57,8 +56,8 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	}
 
 	public void detruit(Destructible ps, ArrayList<Objets> butin) {
-		if(this.maxBomb < this.countBomb){
-			this.maxBomb += 1;	
+		if(this.maxBombe < this.countBomb){
+			this.maxBombe += 1;	
 		}
 	}
 
@@ -98,6 +97,10 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	
 	public int getBombePortee(){
 		return this.bombePortee;
+	}
+	
+	public int getMaxBombe(){
+		return this.maxBombe;
 	}
 	
 	public boolean isObstacle() {

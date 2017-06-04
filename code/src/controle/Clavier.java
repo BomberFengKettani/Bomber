@@ -1,6 +1,5 @@
 package controle;
 
-import java.io.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -36,7 +35,7 @@ public class Clavier implements KeyListener{
 				break;
 //			case KeyEvent.VK_NUMPAD0:
 			case KeyEvent.VK_M:
-				jeu.poserBombe("bomb", Joueur2);
+				jeu.poserBombe("bombe", Joueur2);
 				break;
 			// Player 2
 			case KeyEvent.VK_D: 
@@ -52,7 +51,8 @@ public class Clavier implements KeyListener{
 				jeu.bougerJoueur(0, -1, Joueur1);
 				break;
 			case KeyEvent.VK_F:
-				jeu.poserBombe("bomb", Joueur1);
+				jeu.poserBombe("bombe", Joueur1);
+				break;
 		}
 	}
 

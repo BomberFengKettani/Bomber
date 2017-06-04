@@ -133,7 +133,7 @@ public class Jeu implements DestructibleObservateur{
 		
 		Joueur joueur = ((Joueur) objet.get(numeroJoueur));
 		BombeObjet bombePosee = joueur.poserBombe(bombType);
-		System.out.println(numeroJoueur);
+
 		if(numeroJoueur == 0){
 			this.BombeDureeBas = bombePosee.duree/1000;
 		}if(numeroJoueur == 1){
@@ -354,17 +354,34 @@ public class Jeu implements DestructibleObservateur{
 		notificationVue();
 	}
 	
-	private void notificationVue(){
+	public void update(){
 		this.fenetre.plateau.vieHaut = Joueur2.getVie();
 		this.fenetre.plateau.vieBas = Joueur1.getVie();
 		this.fenetre.plateau.dureeBombeBas = this.BombeDureeBas;
 		this.fenetre.plateau.dureeBombeHaut = this.BombeDureeHaut;
 		this.fenetre.plateau.porteeBas = Joueur1.getBombePortee();
 		this.fenetre.plateau.porteeHaut = Joueur2.getBombePortee();
+		this.fenetre.plateau.NbBombeBas = Joueur1.getMaxBombe();
+		this.fenetre.plateau.NbBombeHaut = Joueur2.getMaxBombe();
+	}
+	
+	private void notificationVue(){
+		this.update();
 		fenetre.update();
 	}
 
 	public ArrayList<Objets> getJeuObjets(){
 		return this.objet;
 	}
+	
+	public boolean isEnd(){
+		if(Joueur1.getVie() == 0 || Joueur2.getVie() == 0){
+			return true;
+		}return false;
+	}
+	
+	public void annonceVictoire(){
+		objet.removeAll(objet);
+	}
+	
 }

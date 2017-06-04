@@ -33,6 +33,8 @@ public class Plateau extends JPanel {
 	
 	private BufferedImage bombeRouge;
 	
+	private BufferedImage gameOver;
+	
 	public int vieHaut;
 	public int vieBas;
 	
@@ -42,9 +44,22 @@ public class Plateau extends JPanel {
 	public int dureeBombeHaut;
 	public int dureeBombeBas;
 	
+	public int NbBombeHaut;
+	public int NbBombeBas;
+	
 	public Plateau(){
 		this.setFocusable(true);
 		this.requestFocusInWindow();
+	}
+	
+	public void paintNbBombeHaut(Graphics g, int NbBombeHaut){
+		String v = String.valueOf(NbBombeHaut);
+		g.drawString(v, 26*40, 5*40);
+	}
+	
+	public void paintNbBombeBas(Graphics g, int NbBombeBas){
+		String v = String.valueOf(NbBombeBas);
+		g.drawString(v, 26*40, 12*40);
 	}
 	
 	public void paintVieHaut(Graphics g, int vieHaut){
@@ -54,7 +69,7 @@ public class Plateau extends JPanel {
 	
 	public void paintVieBas(Graphics g, int vieBas){
 		String v = String.valueOf(vieBas);
-		g.drawString(v,26*40,8*40);
+		g.drawString(v,26*40,9*40);
 	}
 	
 	public void paintdureeBombeHaut(Graphics g, int dureeBombeHaut){
@@ -64,12 +79,12 @@ public class Plateau extends JPanel {
 	
 	public void paintdureeBombeBas(Graphics g, int dureeBombeBas){
 		String v = String.valueOf(dureeBombeBas);
-		g.drawString(v, 26*40, 10*40);
+		g.drawString(v, 26*40, 11*40);
 	}
 	
 	public void paintPorteeBas(Graphics g, int porteeBas){
 		String v = String.valueOf(porteeBas);
-		g.drawString(v, 26*40, 9*40);
+		g.drawString(v, 26*40, 10*40);
 	}
 	
 	public void paintPorteeHaut(Graphics g, int porteeHaut){
@@ -79,7 +94,7 @@ public class Plateau extends JPanel {
 	
 	public void paint(Graphics g) {
 		// Right side
-		for(int i = 21; i<30; i++){
+		for(int i = 21; i<40; i++){
 			for(int j = 0; j<17; j++){
 				int x = i;
 				int y = j;
@@ -92,17 +107,19 @@ public class Plateau extends JPanel {
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("default", Font.BOLD, 20));
 		g.drawString("JoueurHaut", 22*40, 1*40);
-		g.drawString("JoueurBas", 22*40, 7*40);
+		g.drawString("JoueurBas", 22*40, 8*40);
 		
 		// Haut
 		g.setFont(new Font("default", Font.BOLD, 16));
 		g.drawString("Vie : ", 24*40, 2*40);
 		g.drawString("   Portée : ", 23*40, 3*40);
 		g.drawString("DureeBombe : ", 22*40, 4*40);
+		g.drawString("   Nb Bombes : ", 22*40, 5*40);
 		//Bas
-		g.drawString("Vie : ", 24*40, 8*40);
-		g.drawString("   Portée : ", 23*40, 9*40);
-		g.drawString("DureeBombe : ", 22*40, 10*40);
+		g.drawString("Vie : ", 24*40, 9*40);
+		g.drawString("   Portée : ", 23*40, 10*40);
+		g.drawString("DureeBombe : ", 22*40, 11*40);
+		g.drawString("   Nb Bombes : ", 22*40, 12*40);
 
 		this.paintVieHaut(g, this.vieHaut);
 		this.paintVieBas(g, this.vieBas);
@@ -110,6 +127,8 @@ public class Plateau extends JPanel {
 		this.paintdureeBombeHaut(g, this.dureeBombeHaut);
 		this.paintPorteeBas(g, this.porteeBas);
 		this.paintPorteeHaut(g, this.porteeHaut);
+		this.paintNbBombeBas(g, NbBombeBas);
+		this.paintNbBombeHaut(g, NbBombeHaut);
 		
 		// BomberMan Logo en bas à droite
 		try{
@@ -117,7 +136,7 @@ public class Plateau extends JPanel {
 		} catch(IOException e){
 			e.printStackTrace();
 		}
-		g.drawImage(bombermanJeu, 23*40, 13*40, 150, 150, null);
+		g.drawImage(bombermanJeu, 33*40, 13*40, 150, 150, null);
 		
 		try{
 			terrain = ImageIO.read(getClass().getResourceAsStream("/Images/terrain.jpg"));
@@ -170,6 +189,12 @@ public class Plateau extends JPanel {
 			e.printStackTrace();
 		}
 		
+		try{
+			gameOver = ImageIO.read(getClass().getResourceAsStream("/Images/gameOver.png"));
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+		
 		// paint object
 		for(Objets objet : this.objet){
 			
@@ -212,7 +237,6 @@ public class Plateau extends JPanel {
 			}else if(color == 12){
 				g.drawImage(bombeRouge, x*40, y*40, 40, 40, null);	
 			}
- 
 		}
 	}
 	
