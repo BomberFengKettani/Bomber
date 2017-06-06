@@ -27,7 +27,7 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 
 	public BombeObjet poserBombe(String type){
 		if(this.maxBombe > 0){
-			this.maxBombe = this.maxBombe - 1;
+			this.maxBombe -= 1;
 			BombeObjet bombe = null;
 			
 			if(type.equals("nuke")){
