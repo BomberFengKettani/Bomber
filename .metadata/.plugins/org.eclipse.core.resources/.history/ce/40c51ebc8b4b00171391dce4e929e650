@@ -1,0 +1,38 @@
+package Model;
+
+import java.util.ArrayList;
+
+public class BlockFranchissable extends Block implements Destructible, ExplosableObservateur{
+
+	private ArrayList<DestructibleObservateur> observateurs = new ArrayList<DestructibleObservateur>();
+	
+	public BlockFranchissable(float X, float Y) {
+		super(X, Y, 5, "BlockFranchissable");
+	}
+
+	public void explode(Explosable e) {
+		
+		BombeObjet bombe = (BombeObjet) e;
+		boolean distanceX = Math.abs(this.getPosX() - bombe.getPosX()) <= bombe.getPortee();
+		boolean distanceY = Math.abs(this.getPosY() - bombe.getPosY()) <= bombe.getPortee();
+
+		if(distanceX && distanceY){
+			destructibleNotificationObservateur();	
+		}
+	}
+	
+	public void destructibleFixe(DestructibleObservateur po) {
+		observateurs.add(po);		
+	}
+
+	public void destructibleNotificationObservateur() {
+		for (DestructibleObservateur o : observateurs) {
+			o.detruit(this, null);
+		}	
+	}
+
+	public boolean isObstacle() {
+		return true;
+	}
+	
+}

@@ -1,0 +1,10 @@
+package Model;
+
+public class Bonus extends Objets{
+
+	public BonusFlamme
+	
+	public boolean isObstacle(){
+		return false;
+	}
+}

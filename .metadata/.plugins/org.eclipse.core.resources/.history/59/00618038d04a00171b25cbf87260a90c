@@ -1,0 +1,33 @@
+package Model;
+
+public class Bonus extends Objets implements Runnable{
+
+	boolean detonated = false;
+	
+	public Bonus(int x, int y, int couleur, String type){
+		super(x,y,couleur, type);
+	}
+	
+	public void run(){
+		int compteur = 0;
+		while(!this.detonated){
+			try {
+				Thread.sleep(10);
+				compteur += 1;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public boolean isDropped(Joueur joueur){
+		if( joueur.getPosX() == this.getPosX() && joueur.getPosY() == this.getPosY()){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isObstacle(){
+		return false;
+	}
+}

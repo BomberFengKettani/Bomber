@@ -4,6 +4,8 @@ import View.Fenetre;
 
 import java.util.ArrayList;
 
+import java.util.Random;
+
 public class Jeu implements DestructibleObservateur{
 	
 	public ArrayList<Objets> objet = new ArrayList<Objets>();
@@ -14,10 +16,30 @@ public class Jeu implements DestructibleObservateur{
 	
 	public int BombeDureeHaut = 5;
 	public int BombeDureeBas = 5;
+		
+	public boolean detonated;
 	
 	/* Field size */
 	private int x = 21;
 	private int y = 17;
+	
+	/* 20% chance to drop a bonus*/
+	int [] bonus = {0,0,1,0,0,0,1,0,0,0};
+	
+	Random Rand = new Random();
+	int choix = Rand.nextInt(10);
+	
+	int lastObjectExplodedXPosX = 0;
+	int lastObjectExplodedXPosY = 0;
+	
+	int lastObjectExplodedXNegX = 0;
+	int lastObjectExplodedXNegY = 0;
+	
+	int lastObjectExplodedYPosX = 0;
+	int lastObjectExplodedYPosY = 0;
+	
+	int lastObjectExplodedYNegX = 0;
+	int lastObjectExplodedYNegY = 0;
 	
 	public Jeu(Fenetre fenetre, Joueur joueur1, Joueur joueur2){
 		this.fenetre = fenetre;
@@ -128,12 +150,13 @@ public class Jeu implements DestructibleObservateur{
 		notificationVue();
 	}
 	
-	
 	public void poserBombe(String bombType, int numeroJoueur){
 		
 		Joueur joueur = ((Joueur) objet.get(numeroJoueur));
 		BombeObjet bombePosee = joueur.poserBombe(bombType);
 
+		this.detonated = bombePosee.detonated;
+		
 		if(numeroJoueur == 0){
 			this.BombeDureeBas = bombePosee.duree/1000;
 		}if(numeroJoueur == 1){
@@ -214,6 +237,10 @@ public class Jeu implements DestructibleObservateur{
 				if(valeurXPos[indiceXPos] == 2){ // Eviter d'afficher l'effet explosion sur les BlockNonFranchissables
 					indiceXPos -= 1;
 				}
+				// Position flamme XPos
+				this.lastObjectExplodedXPosX = (int)bombePosee.getPosX()+indiceXPos;
+				this.lastObjectExplodedXPosY = (int)bombePosee.getPosY();
+				
 				// Fixe la portee 
 				bombePosee.setporteeXPos(indiceXPos);
 				// test d'instanciation
@@ -242,6 +269,10 @@ public class Jeu implements DestructibleObservateur{
 				if(valeurXNeg[indiceXNeg] == 2){
 					indiceXNeg -= 1;
 				}
+				// Position flamme XNeg
+				this.lastObjectExplodedXNegX = (int)bombePosee.getPosX()-indiceXNeg;
+				this.lastObjectExplodedXNegY = (int)bombePosee.getPosY();
+				
 				// Fixe la portee 
 				bombePosee.setporteeXNeg(indiceXNeg);
 				// test d'instanciation
@@ -270,6 +301,10 @@ public class Jeu implements DestructibleObservateur{
 				if(valeurYPos[indiceYPos]==2){
 					indiceYPos -= 1;
 				}
+				// Position flamme YPos
+				this.lastObjectExplodedYPosX = (int)bombePosee.getPosX();
+				this.lastObjectExplodedYPosY = (int)bombePosee.getPosY()+indiceYPos;
+				
 				// Fixe la portee 
 				bombePosee.setporteeYPos(indiceYPos);
 				// test d'instanciation
@@ -298,6 +333,10 @@ public class Jeu implements DestructibleObservateur{
 				if(valeurYNeg[indiceYNeg]==2){
 					indiceYNeg -= 1;
 				}
+				// Position flamme YNeg
+				this.lastObjectExplodedYNegX = (int)bombePosee.getPosX();
+				this.lastObjectExplodedYNegY = (int)bombePosee.getPosY()-indiceYNeg;
+				
 				// Fixe la portee 
 				bombePosee.setporteeYNeg(indiceYNeg);
 				// test d'instanciation
@@ -319,7 +358,6 @@ public class Jeu implements DestructibleObservateur{
 			notificationVue();
 		}
 	}
-	
 	
 	public void bougerJoueur(float x, float y, int playerNumber){
 		Joueur joueur = ((Joueur) objet.get(playerNumber));
@@ -343,6 +381,14 @@ public class Jeu implements DestructibleObservateur{
 			joueur.bouger(x,y);
 			notificationVue();
 		}
+	}
+	
+	public synchronized void poserFlamme(){
+		
+//		objet.add(new BonusFlamme(this.lastObjectExplodedXPosX, this.lastObjectExplodedXPosY, 7,10)); // add flammeRouge
+//		objet.add(new BonusFlamme(this.lastObjectExplodedXNegX, this.lastObjectExplodedXNegY, 9,10)); // add flammeRouge
+//		objet.add(new BonusFlamme(this.lastObjectExplodedYPosX, this.lastObjectExplodedYPosY, 10,10)); // add flammeRouge
+//		objet.add(new BonusFlamme(this.lastObjectExplodedYNegX, this.lastObjectExplodedYNegY, 11,10)); // add flammeRouge
 	}
 	
 	// Object destruction

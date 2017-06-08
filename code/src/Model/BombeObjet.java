@@ -69,7 +69,7 @@ public abstract class BombeObjet extends Objets implements Runnable, Destructibl
 		
 	public void run() {
 		int compteur = 0;
-		while(!this.detonated  && compteur < this.duree/10.0){
+		while(!this.detonated && compteur < this.duree/10.0){
 			try {
 				Thread.sleep(10);
 				compteur += 1;
@@ -78,7 +78,7 @@ public abstract class BombeObjet extends Objets implements Runnable, Destructibl
 			}
 		}
 		this.destructibleNotificationObservateur();
-		this.explosableNotificationObservateur();
+		this.explosableNotificationObservateur();		
 	}
 	
 	public void destructibleFixe(DestructibleObservateur po) {

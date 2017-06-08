@@ -1,0 +1,24 @@
+package Model;
+
+public class Bonus extends Objets implements Runnable{
+	
+	public Bonus(int x, int y, int couleur, String type){
+		super(x,y,couleur, type);
+	}
+	
+	public void run(){
+		int compteur = 0;
+
+	}
+	
+	public boolean getBonus(Joueur joueur){
+		if(joueur.getPosX() == this.getPosX() && joueur.getPosY() == this.getPosY()){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isObstacle(){
+		return false;
+	}
+}

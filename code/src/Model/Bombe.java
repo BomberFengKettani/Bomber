@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 public class Bombe extends BombeObjet implements Destructible{
-	
+
 	public Bombe(float x, float y, int duree, int portee) {
 		super(x, y, duree, portee, 8);
 	}
@@ -91,9 +91,9 @@ public class Bombe extends BombeObjet implements Destructible{
 			butin.add(explosion);
 		}
 		
-		// bomb image
+		// destruction
 		for (DestructibleObservateur o : this.destructibleObservateurs) {
 			o.detruit(this, butin);
-		}	
+		}
 	}
 }

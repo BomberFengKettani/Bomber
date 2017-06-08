@@ -1,0 +1,20 @@
+package Model;
+
+public class BonusFlamme extends Bonus{
+
+	int bonusPortee;
+	
+	public BonusFlamme(int x, int y, int couleur, int bonusPortee, String type){
+		super(x,y,couleur,"BonusFlamme");
+		this.bonusPortee = bonusPortee;
+	}
+	
+	public void getBonusFlamme(Joueur joueur){
+		joueur.setBombePortee(joueur.getBombePortee() + this.bonusPortee);
+	}
+	
+	public boolean isObstacle(){
+		return false;
+	}
+	
+}

@@ -28,7 +28,7 @@ public class BlockFranchissable extends Block implements Destructible, Explosabl
 	public void destructibleNotificationObservateur() {
 		for (DestructibleObservateur o : observateurs) {
 			o.detruit(this, null);
-		}	
+		}
 	}
 
 	public boolean isObstacle() {

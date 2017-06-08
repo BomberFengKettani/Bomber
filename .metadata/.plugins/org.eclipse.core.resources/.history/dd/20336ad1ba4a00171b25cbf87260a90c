@@ -1,0 +1,12 @@
+package Model;
+
+public class Bonus extends Objets{
+
+	public Bonus(int x, int y, int couleur){
+		super(x,y,couleur);
+	}
+	
+	public boolean isObstacle(){
+		return false;
+	}
+}

@@ -1,0 +1,12 @@
+package Model;
+
+public class BonusBombe extends Bonus{
+
+	public BonusBombe(int x, int y, int couleur, String type){
+		super(x, y, couleur, type);
+	}
+	
+	public boolean isObstacle(){
+		return true;
+	}
+}

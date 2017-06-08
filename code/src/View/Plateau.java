@@ -1,7 +1,6 @@
 package View;
 
 import Model.Objets;
-import Model.Son;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -124,8 +123,7 @@ public class Plateau extends JPanel {
 					g.setColor(Color.BLACK);
 					g.fillRect(x*40, y*40, 40, 40);
 				}
-			}
-			this.paintVainqueur(g);
+			}this.paintVainqueur(g);
 		}
 		else{
 			// Right side
@@ -240,10 +238,10 @@ public class Plateau extends JPanel {
 					g.setColor(Color.GRAY);
 					g.fillRect(x*40, y*40, 40, 40);
 				}else if(color == 2){
-//					if(x>=1 && x<=20 && y>=1 && y<=16){
-//						g.drawImage(joueur1, 40+x*40, 40+y*40, 40, 40, null);
-//					}else{
+//					if((x==1 && y>=1 && y<=15) || (y==15 && x>=1 && x<=19) || (x==19 && y>=1 && y<=15) || (x<=19 && x>=1 && y==1)){
 						g.drawImage(joueur1, x*40, y*40, 40, 40, null);
+//					}else{
+//						g.drawImage(joueur1, 40+x, 40+y, 40, 40, null);
 //					}
 				}else if(color == 3){
 					g.drawImage(explosion, x*40, y*40, 40, 40, null);

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Joueur extends Objets implements DestructibleObservateur, ExplosableObservateur, Destructible{
 	
+	int maxPortee = 10;
+	int minPortee = 1;
+	
 	int countBomb;
 	int maxBombe;
 	int bombePortee = 3;
@@ -30,10 +33,10 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 			this.maxBombe -= 1;
 			BombeObjet bombe = null;
 			
+			int duree = 5000;
 			if(type.equals("nuke")){
-				bombe = new Nuke(this.posX, this.posY, 5000, this.bombePortee); // 5 000 ms
+				bombe = new Nuke(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
 			}else if(type.equals("bombe")){
-				int duree = 5000;
 				bombe = new Bombe(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
 			}
 			
