@@ -13,6 +13,8 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	int vie;
 	int numJoueur;
 	
+	public boolean detonated = false;
+	
 	private ArrayList<DestructibleObservateur> observateurs = new ArrayList<DestructibleObservateur>();
 	
 	public Joueur(float x, float y, int couleur, String joueur, int maxBomb, int vie, int numJoueur){
@@ -30,16 +32,13 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 
 	public BombeObjet poserBombe(String type){
 		if(this.maxBombe > 0){
-			this.maxBombe -= 1;
+			this.maxBombe -= 1; // Diminution du nombre de bombes possable
 			BombeObjet bombe = null;
 			
 			int duree = 5000;
-			if(type.equals("nuke")){
-				bombe = new Nuke(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
-			}else if(type.equals("bombe")){
+			if(type.equals("bombe")){ // Permet de créer une bombe si le joueur veut en déposer une
 				bombe = new Bombe(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
 			}
-			
 			bombe.destructibleFixe(this);
 			Thread thread = new Thread(bombe);
 			thread.start();
@@ -55,13 +54,13 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 	public void destructibleNotificationObservateur() {
 		for (DestructibleObservateur o : observateurs) {
 			o.detruit(this, null);
-		}	
+		}
 	}
 
 	public void detruit(Destructible ps, ArrayList<Objets> butin) {
 		if(this.maxBombe < this.countBomb){
-			this.maxBombe += 1;	
-		}
+			this.maxBombe += 1;
+		}this.detonated = false;
 	}
 
 	public void explode(Explosable e) {
@@ -80,9 +79,6 @@ public class Joueur extends Objets implements DestructibleObservateur, Explosabl
 			(distanceXNeg && this.getPosY()==bombe.getPosY())||
 			(distanceYNeg && this.getPosX()==bombe.getPosX())){
 			this.vie -= 1;
-//			if(this.vie == 0){
-//				destructibleNotificationObservateur();
-//			}
 		}
 	}
 

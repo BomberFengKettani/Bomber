@@ -4,22 +4,30 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import Model.Jeu;
+import View.Fenetre;
 
 public class Clavier implements KeyListener{
 	private Jeu jeu;
+	private Fenetre fenetre;
+	
+	public boolean lancer = false;
 	
 	// Player ID Number
 	private static final int Joueur1 = 0;
 	private static final int Joueur2 = 1;
 	
-	public Clavier(Jeu jeu){
+	public Clavier(Jeu jeu, Fenetre fenetre){
 		this.jeu = jeu;
+		this.fenetre = fenetre;
 	}
 
 	public void keyPressed(KeyEvent Touche) {
 		int key = Touche.getKeyCode();
 		
 		switch (key){
+			case KeyEvent.VK_ENTER:
+				fenetre.debutPartie();
+				break;
 			// Player 1
 			case KeyEvent.VK_RIGHT:
 				jeu.bougerJoueur(1, 0, Joueur2);
@@ -33,9 +41,8 @@ public class Clavier implements KeyListener{
 			case KeyEvent.VK_UP:
 				jeu.bougerJoueur(0, -1, Joueur2);
 				break;
-			case KeyEvent.VK_M:
+			case KeyEvent.VK_M: // keyEvent.VK_NUMPAD0 si on veut que le joueur2 dépose ses bombes avec 0
 				jeu.poserBombe("bombe", Joueur2);
-				jeu.poserFlamme();
 				break;
 			// Player 2
 			case KeyEvent.VK_D: 

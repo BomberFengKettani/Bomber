@@ -14,7 +14,9 @@ public abstract class BombeObjet extends Objets implements Runnable, Destructibl
 	
 	boolean detonated = false;
 	
+	// Liste des éléments à détruire
 	protected ArrayList<DestructibleObservateur> destructibleObservateurs = new ArrayList<DestructibleObservateur>();
+	// Liste des éléments à exploser
 	private ArrayList<ExplosableObservateur> explosableObservateurs = new ArrayList<ExplosableObservateur>();
 	
 	public BombeObjet(float x, float y, int duree, int portee, int couleur){
@@ -69,7 +71,7 @@ public abstract class BombeObjet extends Objets implements Runnable, Destructibl
 		
 	public void run() {
 		int compteur = 0;
-		while(!this.detonated && compteur < this.duree/10.0){
+		while(compteur < this.duree/10.0){
 			try {
 				Thread.sleep(10);
 				compteur += 1;
@@ -78,23 +80,28 @@ public abstract class BombeObjet extends Objets implements Runnable, Destructibl
 			}
 		}
 		this.destructibleNotificationObservateur();
-		this.explosableNotificationObservateur();		
+		this.explosableNotificationObservateur();
+		Son.jouerSon("/Sons/Explosion.wav");
 	}
 	
+	// Ajouter les éléments à détruire
 	public void destructibleFixe(DestructibleObservateur po) {
 		destructibleObservateurs.add(po);		
 	}
 
+	// Destruction des objets
 	public void destructibleNotificationObservateur() {
 		for (DestructibleObservateur o : destructibleObservateurs) {
 			o.detruit(this, null);
 		}	
 	}
 
+	// Ajouter les éléments à exploser
 	public void explosableFixe(ExplosableObservateur eo) {
 		explosableObservateurs.add(eo);
 	}
 
+	// Exploser les éléments
 	public void explosableNotificationObservateur() {
 		for (ExplosableObservateur o : explosableObservateurs) {
 			o.explode(this);

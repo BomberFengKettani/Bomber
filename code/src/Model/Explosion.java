@@ -2,7 +2,6 @@ package Model;
 
 import java.util.ArrayList;
 
-// Runnable is used for creating a thread
 public class Explosion extends Objets implements Runnable, Destructible {
 
 	private int duree;

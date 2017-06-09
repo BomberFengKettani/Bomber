@@ -1,0 +1,100 @@
+package Model;
+
+import java.util.ArrayList;
+import Model.Jeu;
+
+public class Bombe extends BombeObjet implements Destructible{
+
+	public Bombe(float x, float y, int duree, int portee) {
+		super(x, y, duree, portee, 8);
+	}
+	
+	public void run() {
+		
+		int compteur = 0;
+		while(compteur < this.duree/10.0){
+			try {
+				Thread.sleep(10);
+				compteur += 1;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(this.detonated);
+		this.destructibleNotificationObservateur();
+		this.explosableNotificationObservateur();
+		Son.jouerSon("/Sons/Explosion.wav");
+	}
+
+	
+	public void explode(Explosable e) { // Explosion entre bombes
+		BombeObjet bombe = (BombeObjet) e;
+		
+		boolean distanceX = Math.abs(this.getPosX() - bombe.getPosX()) <= bombe.getPortee() && this.getPosY() == bombe.getPosY();
+		boolean distanceY = Math.abs(this.getPosY() - bombe.getPosY()) <= bombe.getPortee() && this.getPosX() == bombe.getPosX();
+		
+		if(distanceX || distanceY){
+			this.detonated = true;
+			this.destructibleNotificationObservateur();		
+		}
+	}
+	
+
+	synchronized public void destructibleNotificationObservateur() {
+		
+		ArrayList<Objets> butin = new ArrayList<Objets>();
+		
+		float x = this.getPosX();
+		float y = this.getPosY();
+		
+		// XNeg
+		for(float i = x-this.getporteeXNeg(); i <= x; i++){
+			Explosion explosion = new Explosion(i,y,500); // 500 ms
+			Thread thread = new Thread(explosion);
+			thread.start();
+			// bomb explosion image
+			for(DestructibleObservateur observateur : destructibleObservateurs){
+				explosion.destructibleFixe(observateur);
+			}
+			butin.add(explosion);
+		}
+		// XPos
+		for(float i = x; i <= x+this.getporteeXPos(); i++){
+			Explosion explosion = new Explosion(i,y,500); // 500 ms
+			Thread thread = new Thread(explosion);
+			thread.start();
+			// bomb explosion image
+			for(DestructibleObservateur observateur : destructibleObservateurs){
+				explosion.destructibleFixe(observateur);
+			}
+			butin.add(explosion);
+		}
+		// YNeg
+		for(float i = y-this.getporteeYNeg(); i <= y; i++){
+			Explosion explosion = new Explosion(x,i,500); // 500 ms
+			Thread thread = new Thread(explosion);
+			thread.start();
+			// bomb explosion image
+			for(DestructibleObservateur observateur : destructibleObservateurs){
+				explosion.destructibleFixe(observateur);
+			}
+			butin.add(explosion);
+		}
+		// YPos
+		for(float i = y; i <= y+this.getporteeYPos(); i++){
+			Explosion explosion = new Explosion(x,i,500); // 500 ms
+			Thread thread = new Thread(explosion);
+			thread.start();
+			// bomb explosion image
+			for(DestructibleObservateur observateur : destructibleObservateurs){
+				explosion.destructibleFixe(observateur);
+			}
+			butin.add(explosion);
+		}
+		
+		// destruction
+		for (DestructibleObservateur o : this.destructibleObservateurs) {
+			o.detruit(this, butin);
+		}
+	}
+}

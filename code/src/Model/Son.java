@@ -5,6 +5,7 @@ import javax.sound.sampled.Clip;
 
 public class Son{
 	
+	// Il faut rappeler qu'il faut ajouter dans Java build path le dossier des ressources ... 
 	public static synchronized void jouerSon(String nom){
 		try{
 			Clip clip = AudioSystem.getClip();

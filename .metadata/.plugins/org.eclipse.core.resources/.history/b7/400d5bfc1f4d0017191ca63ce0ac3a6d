@@ -1,0 +1,21 @@
+package Model;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+public class Son{
+	
+	// Il faut rappeler qu'il faut ajouter dans Java build path le dossier des ressources
+	public static synchronized void jouerSon(String nom){
+		try{
+			Clip clip = AudioSystem.getClip();
+			clip.open(AudioSystem.getAudioInputStream(Son.class.getResourceAsStream(nom)));
+			clip.start();
+			Thread.sleep(clip.getMicrosecondLength()/1000);
+			clip.close();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+}

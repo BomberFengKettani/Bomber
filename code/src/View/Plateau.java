@@ -1,5 +1,4 @@
 package View;
-
 import Model.Objets;
 
 import java.awt.Color;
@@ -35,6 +34,8 @@ public class Plateau extends JPanel {
 	
 	private BufferedImage gameOver;
 	
+	private BufferedImage troll;
+	
 	public int vieHaut;
 	public int vieBas;
 	
@@ -47,6 +48,7 @@ public class Plateau extends JPanel {
 	public int NbBombeHaut;
 	public int NbBombeBas;
 	
+	public boolean lancer;
 	public boolean isEnd;
 	public boolean lostJoueur1;
 	public boolean lostJoueur2;
@@ -112,9 +114,31 @@ public class Plateau extends JPanel {
 		}
 	}
 	
+	public void paintMenu(Graphics g){
+		try{
+			troll = ImageIO.read(getClass().getResourceAsStream("/Images/menu.png"));
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+		g.drawImage(troll, 8*40, 0, 21*40, 17*40, null);
+	}
+	
 	public void paint(Graphics g) {
-		
-		if(this.isEnd == true){
+		if(this.lancer == false){
+			for(int i = 0; i <40;i++){
+				for(int j = 0; j<17; j++){
+					int x = i;
+					int y = j;
+					// Background color
+					g.setColor(Color.BLACK);
+					g.fillRect(x*40, y*40, 40, 40);
+				}
+			}this.paintMenu(g);
+			g.setColor(Color.GREEN);
+			g.setFont(new Font("default", Font.BOLD, 40));
+			g.drawString("Appuyer sur Entrée pour jouer", 12*40, 15*40);
+			
+		}else if(this.isEnd == true){
 			for(int i = 0; i <40;i++){
 				for(int j = 0; j<17; j++){
 					int x = i;
@@ -238,11 +262,7 @@ public class Plateau extends JPanel {
 					g.setColor(Color.GRAY);
 					g.fillRect(x*40, y*40, 40, 40);
 				}else if(color == 2){
-//					if((x==1 && y>=1 && y<=15) || (y==15 && x>=1 && x<=19) || (x==19 && y>=1 && y<=15) || (x<=19 && x>=1 && y==1)){
-						g.drawImage(joueur1, x*40, y*40, 40, 40, null);
-//					}else{
-//						g.drawImage(joueur1, 40+x, 40+y, 40, 40, null);
-//					}
+					g.drawImage(joueur1, x*40, y*40, 40, 40, null);
 				}else if(color == 3){
 					g.drawImage(explosion, x*40, y*40, 40, 40, null);
 				}else if(color == 4){

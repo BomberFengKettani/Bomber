@@ -1,1 +1,17 @@
 1496755142609	Rename compilation unit 'BonusFlamme.java'
+1496923909287	Rename field 'detonated'
+1496933160869	Delete element
+1496942166661	Rename local variable 'playerNumber'
+1496944166895	Delete element
+1496997372261	Rename type 'Nuke'
+1497001766417	Rename field 'lastObjectExplodedXPosX'
+1497001786287	Rename field 'lastObjectExplodedXPosY'
+1497001794489	Rename field 'lastObjectExplodedXNegX'
+1497001801644	Rename field 'lastObjectExplodedXNegY'
+1497001810864	Rename field 'lastObjectExplodedYPosX'
+1497001818288	Rename field 'lastObjectExplodedYPosY'
+1497001828850	Rename field 'lastObjectExplodedYNegX'
+1497001837740	Rename field 'lastObjectExplodedYNegY'
+1497009398132	Delete element
+1497018572886	Delete element
+1497022047504	Delete element

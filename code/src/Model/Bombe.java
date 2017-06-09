@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
+
 public class Bombe extends BombeObjet implements Destructible{
 
 	public Bombe(float x, float y, int duree, int portee) {
@@ -11,8 +12,7 @@ public class Bombe extends BombeObjet implements Destructible{
 	public void run() {
 		
 		int compteur = 0;
-		
-		while(!this.detonated  && compteur < this.duree/10.0){
+		while(compteur < this.duree/10.0){
 			try {
 				Thread.sleep(10);
 				compteur += 1;
@@ -22,11 +22,10 @@ public class Bombe extends BombeObjet implements Destructible{
 		}
 		this.destructibleNotificationObservateur();
 		this.explosableNotificationObservateur();
-		Son.jouerSon("/Sons/Explosion.wav");
 	}
 
 	
-	public void explode(Explosable e) {
+	public void explode(Explosable e) { // Explosion entre bombes
 		BombeObjet bombe = (BombeObjet) e;
 		
 		boolean distanceX = Math.abs(this.getPosX() - bombe.getPosX()) <= bombe.getPortee() && this.getPosY() == bombe.getPosY();
@@ -40,7 +39,7 @@ public class Bombe extends BombeObjet implements Destructible{
 	
 
 	synchronized public void destructibleNotificationObservateur() {
-		
+		// détermine tous les éléments à détruire 
 		ArrayList<Objets> butin = new ArrayList<Objets>();
 		
 		float x = this.getPosX();

@@ -3,7 +3,6 @@ package Model;
 public class BonusFlamme extends Bonus{
 
 	int bonusPortee;
-	int duree = 5000;
 	
 	public BonusFlamme(int x, int y, int couleur, int bonusPortee){
 		super(x,y,couleur,"BonusFlamme");
@@ -11,21 +10,22 @@ public class BonusFlamme extends Bonus{
 	}
 	
 	public void run() {
-		int compteur = 0;
-		while(!this.detonated  && compteur < this.duree/10.0){
-			try {
-				Thread.sleep(10);
-				compteur += 1;
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-//		this.destructibleNotificationObservateur();
-//		this.explosableNotificationObservateur();
-//		Son.jouerSon("/Sons/Explosion.wav");
+//		System.out.println(dureeJoueur);
+//		int compteur = 0;
+//		while(compteur < dureeJoueur){
+//			try {
+//				Thread.sleep(10);
+//				compteur += 1;
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 	
-	public void getBonusFlamme(Joueur joueur){
+	public void explode(Explosable e) {
+	}
+	
+	public void getBonusFlamme(Joueur joueur){ // Permet d'appliquer les effets du bonus
 		joueur.setBombePortee(joueur.getBombePortee() + this.bonusPortee);
 	}
 	

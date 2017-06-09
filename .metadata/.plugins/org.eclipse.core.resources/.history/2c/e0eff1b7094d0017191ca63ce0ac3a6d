@@ -1,0 +1,111 @@
+package Model;
+
+import java.util.ArrayList;
+
+public class Joueur extends Objets implements DestructibleObservateur, ExplosableObservateur, Destructible{
+	
+	int maxPortee = 10;
+	int minPortee = 1;
+	
+	int countBomb;
+	int maxBombe;
+	int bombePortee = 3;
+	int vie;
+	int numJoueur;
+	
+	public boolean detonated = false;
+	
+	private ArrayList<DestructibleObservateur> observateurs = new ArrayList<DestructibleObservateur>();
+	
+	public Joueur(float x, float y, int couleur, String joueur, int maxBomb, int vie, int numJoueur){
+		super(x,y,couleur,joueur);
+		this.maxBombe = maxBomb;
+		this.countBomb = maxBomb;
+		this.vie = vie;
+		this.numJoueur = numJoueur;
+	}
+	
+	public void bouger(float X, float Y){
+		super.posX = this.posX + X;
+		this.posY = this.posY + Y;
+	}
+
+	public BombeObjet poserBombe(String type){
+		if(this.countBomb > 0){
+			this.countBomb -= 1;
+			BombeObjet bombe = null;
+			
+			int duree = 5000;
+			if(type.equals("bombe")){
+				bombe = new Bombe(this.posX, this.posY, duree, this.bombePortee); // 5 000 ms
+			}
+			bombe.destructibleFixe(this);
+			Thread thread = new Thread(bombe);
+			thread.start();
+			return bombe;
+		}
+		return null;
+	}
+	
+	public void destructibleFixe(DestructibleObservateur po) {
+		observateurs.add(po);		
+	}
+
+	public void destructibleNotificationObservateur() {
+		for (DestructibleObservateur o : observateurs) {
+			o.detruit(this, null);
+		}
+	}
+
+	public void detruit(Destructible ps, ArrayList<Objets> butin) {
+		if(this.maxBombe < this.countBomb){
+			this.countBomb += 1;
+		}this.detonated = false;
+	}
+
+	public void explode(Explosable e) {
+		
+		BombeObjet bombe = (BombeObjet) e;
+		
+		// test if we are in range to be explode
+		boolean distanceXPos = this.getPosX() - bombe.getPosX() <= bombe.getporteeXPos();
+		boolean distanceXNeg = bombe.getPosX() - this.getPosX() <= bombe.getporteeXNeg();
+		boolean distanceYPos = this.getPosY() - bombe.getPosY() <= bombe.getporteeYPos();
+		boolean distanceYNeg = bombe.getPosY() - this.getPosY() <= bombe.getporteeYNeg();
+		
+		// Lost life when we get explode
+		if((distanceXPos && this.getPosY()==bombe.getPosY()) ||
+			(distanceYPos && this.getPosX()==bombe.getPosX())||
+			(distanceXNeg && this.getPosY()==bombe.getPosY())||
+			(distanceYNeg && this.getPosX()==bombe.getPosX())){
+			this.vie -= 1;
+//			if(this.vie == 0){
+//				destructibleNotificationObservateur();
+//			}
+		}
+	}
+
+	public int getVie(){
+		return this.vie;
+	}
+	
+	public int getnumJoueur(){
+		return this.numJoueur;
+	}
+	
+	public void setBombePortee(int bombePortee){
+		this.bombePortee = bombePortee;
+	}
+	
+	public int getBombePortee(){
+		return this.bombePortee;
+	}
+	
+	public int getMaxBombe(){
+		return this.maxBombe;
+	}
+	
+	public boolean isObstacle() {
+		return false;
+	}
+}

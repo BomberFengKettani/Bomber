@@ -12,6 +12,8 @@ public class Fenetre {
 	
 	public Plateau plateau = new Plateau();
 	
+	public boolean lancer = false;
+	
 	public Fenetre(){
 
 		// window title
@@ -37,5 +39,10 @@ public class Fenetre {
 	
 	public void setKeyListener(KeyListener keyboard){
 	    this.plateau.addKeyListener(keyboard);
+	}
+	
+	public void debutPartie(){ // Fonction qui permet de lancer la partie en fixant lancer à true
+		this.lancer = true;
+		this.plateau.lancer = true;
 	}
 }

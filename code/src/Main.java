@@ -1,30 +1,38 @@
 import Model.Jeu;
 import Model.Joueur;
 import Model.Son;
-import Model.Menu;
 import View.Fenetre;
 import controle.Clavier;
 
-// David
+
+// Auteurs : David Feng, Kenza Kettani, Soukaina Kamel.
 public class Main{
 	public static void main(String[] args) {
 		
+		Fenetre fenetre = new Fenetre();
 		Joueur Joueur1 = new Joueur(1,15,2,"Joueur1",3,3,0); // (x,y,couleur,"joueur",maxbomb,vie,numJoueur)
 		Joueur Joueur2 = new Joueur(19,1,6,"Joueur2",3,3,1);
 		
-		Fenetre fenetre = new Fenetre();
 		Jeu jeu = new Jeu(fenetre, Joueur1, Joueur2);
-		Clavier clavier = new Clavier(jeu);
+		Clavier clavier = new Clavier(jeu, fenetre);
 		fenetre.setKeyListener(clavier);
 		
-		while(true){
+		// afficher le menu tant que la touce entrée n'est pas appuyé
+		while(fenetre.lancer == false){
+		}
+		jeu.buildJeu();
+		
+		// Détecter la mort définitif d'un joueur
+		boolean stop = false;
+		while(stop == false){
 			if(jeu.isEnd() == true){
 				jeu.annonceVictoire();
-				//Son.jouerSon("/Sons/gameOver.wav");
+				stop = true;
 			}
-		}
+		}Son.jouerSon("/Sons/gameOver.wav"); // GameOver Sound
+
+//		Son.jouerSon("/Sons/theme.mp3");
+		// transformer le fichier mp3 en wav
 		
-		//Son.jouerSon("/Sons/theme.wav");
-	
 	}
 }

@@ -17,14 +17,16 @@ public class BlockFranchissable extends Block implements Destructible, Explosabl
 		boolean distanceY = Math.abs(this.getPosY() - bombe.getPosY()) <= bombe.getPortee();
 
 		if(distanceX && distanceY){
-			destructibleNotificationObservateur();	
+			destructibleNotificationObservateur();
 		}
 	}
 	
+	// Ajouter à la destruction
 	public void destructibleFixe(DestructibleObservateur po) {
 		observateurs.add(po);		
 	}
 
+	// Détruire blocs 
 	public void destructibleNotificationObservateur() {
 		for (DestructibleObservateur o : observateurs) {
 			o.detruit(this, null);
@@ -32,7 +34,7 @@ public class BlockFranchissable extends Block implements Destructible, Explosabl
 	}
 
 	public boolean isObstacle() {
-		return true;
+		return true; // les blocs Franchissable allias blocs destructibles sont des obstacles
 	}
 	
 }

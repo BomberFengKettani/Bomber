@@ -1,0 +1,42 @@
+package Model;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class Menu extends JPanel{
+
+	private ArrayList<Objets> objet;
+	private BufferedImage troll;
+	private Graphics g;
+	public Menu(){
+		this.setFocusable(true);
+		this.requestFocusInWindow();
+		
+	}
+	
+	public void paint(){
+		try{
+			troll = ImageIO.read(getClass().getResourceAsStream("/Images/test.gif"));
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+		g.drawImage(troll, 50, 50, 50, 50, null);
+	}
+	
+	public void setObjets(ArrayList<Objets> objet){
+		this.objet = objet;
+	}
+	
+	public void redraw(){
+		this.repaint();
+	}
+	
+	
+}
